@@ -8,7 +8,7 @@ from flask_socketio import SocketIO, emit, join_room, leave_room, \
 app = Flask(__name__)
 socketio = SocketIO(app, async_mode=None)
 thread = None
-thread_lock = Lock() #we'll use this lock to prevent multiple clients from modifying thread at the same time
+thread_lock = Lock() 
 
 
 @app.route('/')
