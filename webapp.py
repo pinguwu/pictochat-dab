@@ -13,7 +13,7 @@ import pprint
 import os
 #os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
-app = Flask(__name__).
+app = Flask(__name__)
 app.debug = True
 socketio = SocketIO(app, async_mode=None)
 thread = None
