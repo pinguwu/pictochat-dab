@@ -24,5 +24,17 @@ thread_lock = Lock()
 def index():
     return render_template('home.html', async_mode=socketio.async_mode)
 
+@app.route('/chat1')
+def renderChat1():
+    
+@app.route('/chat2')
+def renderChat2():
+    
+@app.route('/chat3')
+def renderChat3():
+    
+@app.route('/chat4')
+def renderChat4():
+    
 if __name__ == '__main__':
     socketio.run(app, debug=True)
