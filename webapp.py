@@ -26,15 +26,19 @@ def index():
 
 @app.route('/Chat1')
 def renderchat1():
+    return render_template('chat1.html')
     
 @app.route('/Chat2')
 def renderchat2():
+        return render_template('chat2.html')
     
 @app.route('/Chat3')
 def renderchat3():
+        return render_template('chat3.html')
     
 @app.route('/Chat4')
 def renderchat4():
+        return render_template('chat4.html')
     
 if __name__ == '__main__':
     socketio.run(app, debug=True)
