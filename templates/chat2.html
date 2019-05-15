@@ -10,10 +10,25 @@
     var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
 
     socket.on('start', function(msg) {
-      $('#start').text(msg)
-    })
-  })
+      $('#start').text(msg);
+    });
+
+    $('#send-button').click(function() {
+      var msg = $('#textbox').val();
+      socket.emit('new-msg', msg);
+    });
+  });
 </script>
 
 <p id = "start"></p>
+
+<p id="chat-area">
+  {{ chat }}
+</p>
+
+<form action="" method="POST">
+  <label for="Say">Say: </label>
+  <textarea name="textbox" rows="1" id="textbox"></textarea>
+  <button id="send-button" type="submit" value="Post" class="btn btn-outline-success btn-lg">Send</button>
+</form>
 {% endblock %}

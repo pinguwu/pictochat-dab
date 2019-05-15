@@ -37,6 +37,8 @@ def renderchat1():
 def renderchat2():
     return render_template('chat2.html', async_mode = socketio.async_mode)
 
+@socketio.on
+
 @app.route('/Chat3')
 def renderchat3():
     return render_template('chat3.html', async_mode = socketio.async_mode)
@@ -45,17 +47,7 @@ def renderchat3():
 def renderchat4():
     return render_template('chat4.html', async_mode = socketio.async_mode)
 
-def background_thread_1():
-    pass
 
-def background_thread_2():
-    pass
-
-def background_thread_3():
-    pass
-
-def background_thread_4():
-    pass
 
 
 if __name__ == '__main__':
