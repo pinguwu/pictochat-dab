@@ -1,4 +1,19 @@
 {% extends "layout.html" %}
 {% block title %}chat2{% endblock %}
 {% block content %}
+<p>LE CHAT ROOMBA NUMERO DOSE</p>
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    namespace = '/';
+
+    var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+
+    socket.on('start', function(msg) {
+      $('#start').text(msg)
+    })
+  })
+</script>
+
+<p id = "start"></p>
 {% endblock %}
