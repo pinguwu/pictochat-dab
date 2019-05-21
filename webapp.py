@@ -45,6 +45,14 @@ def renderchat3():
 def renderchat4():
     return render_template('chat4.html', async_mode = socketio.async_mode)
 
+@app.route('/posted1')
+def post():
+    post = {}
+    #post["user"] = session['user_data']['login']
+    post["message"] = request.form["message"]
+    #collection.insert_one(post)
+    return rredirect(url_for("Chat1"))
+    
 def background_thread_1():
     pass
 
