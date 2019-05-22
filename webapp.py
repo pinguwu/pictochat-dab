@@ -24,6 +24,25 @@ chat2_data = {}
 chat3_data = {}
 chat4_data = {}
 
+url = 'mongodb+srv://{}:{}@{}/{}'.format(
+    os.environ["MONGO_USERNAME"],
+    os.environ["MONGO_PASSWORD"],
+    os.environ["MONGO_HOST"],
+    os.environ["MONGO_DBNAME"]
+)
+client = pymongo.MongoClient(os.environ["MONGO_HOST"])
+db = client[os.environ["MONGO_DBNAME"]]
+collection = db['text']
+def main():
+    url = 'mongodb+srv://{}:{}@{}/{}'.format(
+        os.environ["MONGO_USERNAME"],
+        os.environ["MONGO_PASSWORD"],
+        os.environ["MONGO_HOST"],
+        os.environ["MONGO_DBNAME"]
+    )
+    client = pymongo.MongoClient(url)
+    db = client[os.environ["MONGO_DBNAME"]]
+    collection = db['message']
 
 @app.route('/')
 def index():
@@ -32,6 +51,16 @@ def index():
 @app.route('/Chat1')
 def renderchat1():
     return render_template('chat1.html', async_mode = socketio.async_mode)
+
+    allUserNames = "";
+    #collection.find_one({})
+
+    for text in collection.find({}):
+        vrbl = str(text['_id'])
+        allUserNames += "<p>" + text["user"] + ": " + text['message'] + "</p>" + '<form action = "/delete" method = "post"> <button type="submit" name="delete" value="'+vrbl+'">Delete</button> </form>'
+
+    from bson.objectid import ObjectId
+    return render_template('chat1.html', past_posts=Markup(allUserNames))
 
 @app.route('/Chat2')
 def renderchat2():
