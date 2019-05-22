@@ -9,7 +9,6 @@ Flask
 Flask-SQLAlchemy
 Flask-WTF
 lxml
-migrate
 pbr
 Pillow
 PyGithub
@@ -22,4 +21,4 @@ Werkzeug
 WTForms
 Flask-pymongo
 dnspython
-bson
+
