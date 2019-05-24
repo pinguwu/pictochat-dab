@@ -32,7 +32,7 @@ url = 'mongodb+srv://{}:{}@{}/{}'.format(
 )
 client = pymongo.MongoClient(os.environ["MONGO_HOST"])
 db = client[os.environ["MONGO_DBNAME"]]
-collection = db['text']
+collection = db['messages']
 def main():
     url = 'mongodb+srv://{}:{}@{}/{}'.format(
         os.environ["MONGO_USERNAME"],
@@ -42,7 +42,7 @@ def main():
     )
     client = pymongo.MongoClient(url)
     db = client[os.environ["MONGO_DBNAME"]]
-    collection = db['message']
+    collection = db['DataB']
 
 @app.route('/')
 def index():
