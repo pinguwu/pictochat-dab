@@ -15,7 +15,7 @@
 
     $('#send-button').click(function() {
       var msg = $('#textbox').val();
-      socket.emit('new-msg', msg);
+      socket.broadcast.emit('new-msg-chat2', msg);
     });
   });
 </script>
@@ -23,10 +23,14 @@
 <p id = "start"></p>
 
 <p id="chat-area">
-  {{ chat }}
+
 </p>
 
-<form action="" method="POST">
+<br>
+<br>
+<br>
+
+<form action="/send-chat2" method="POST">
   <label for="Say">Say: </label>
   <textarea name="textbox" rows="1" id="textbox"></textarea>
   <button id="send-button" type="submit" value="Post" class="btn btn-outline-success btn-lg">Send</button>

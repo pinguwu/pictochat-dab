@@ -37,8 +37,6 @@ def renderchat1():
 def renderchat2():
     return render_template('chat2.html', async_mode = socketio.async_mode)
 
-@socketio.on
-
 @app.route('/Chat3')
 def renderchat3():
     return render_template('chat3.html', async_mode = socketio.async_mode)
