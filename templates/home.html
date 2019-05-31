@@ -1,18 +1,23 @@
 {%extends "layout.html"%}
 {% set active_page = "Home" %}
-{%block title%}Home{%endblock%}
+{%block title%}{%endblock%}
 {%block content%}
 <h1>Choose a Room</h1>
 <br></br>
-<form action="/Chat1" method="POST">
+<form action="/Chat1">
 <button type="submit" class="btn btn-outline-success btn-lg">Chat Room 1</button>
-
-<form action="/Chat2" method="POST">
+</form>
+  
+<form action="/Chat2">
 <button type="submit" class="btn btn-outline-success btn-lg">Chat Room 2</button>
-
-<form action="/Chat3" method="POST">
+</form>
+  
+<form action="/Chat3">
 <button type="submit" class="btn btn-outline-success btn-lg">Chat Room 3</button>
-
-<form action="/Chat4" method="POST">
+</form>
+  
+<form action="/Chat4">
 <button type="submit" class="btn btn-outline-success btn-lg">Chat Room 4</button>
+</form>
+  
 {%endblock%}
