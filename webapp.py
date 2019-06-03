@@ -83,7 +83,7 @@ def post():
     post = {}
     #post["user"] = session['user_data']['login']
     post["message"] = request.form["message"]
-    setColl(post["chatroom"])
+    setColl(request.form["chatroom"])
     collection.insert_one(post)
     return redirect(url_for('/Chat1'))
 
