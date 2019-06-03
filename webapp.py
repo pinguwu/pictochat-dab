@@ -85,8 +85,8 @@ def post():
     post["message"] = request.form["message"]
     setColl(request.form["chatroom"])
     collection.insert_one(post)
-    return redirect(url_for('renderChat1'))
-
+    return redirect("/" + request.form["chatroom"])
+        
 def background_thread_1():
     pass
 
