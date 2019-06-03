@@ -50,7 +50,6 @@ def index():
 
 @app.route('/Chat1')
 def renderchat1():
-    return render_template('chat1.html', async_mode = socketio.async_mode)
 
     allUserNames = "";
     #collection.find_one({})
@@ -60,7 +59,7 @@ def renderchat1():
         allUserNames += "<p>" + text["user"] + ": " + text['message'] + "</p>" + '<form action = "/delete" method = "post"> <button type="submit" name="delete" value="'+vrbl+'">Delete</button> </form>'
 
     from bson.objectid import ObjectId
-    return render_template('chat1.html', past_posts=Markup(allUserNames))
+    return render_template('chat1.html', past_posts=Markup(allUserNames), async_mode = socketio.async_mode)
 
 @app.route('/Chat2')
 def renderchat2():
@@ -80,7 +79,7 @@ def post():
     #post["user"] = session['user_data']['login']
     post["message"] = request.form["message"]
     #collection.insert_one(post)
-    return rredirect(url_for('/Chat1'))
+    return redirect(url_for('/Chat1'))
 
 def background_thread_1():
     pass
