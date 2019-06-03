@@ -34,7 +34,7 @@ client = pymongo.MongoClient(os.environ["MONGO_HOST"])
 db = client[os.environ["MONGO_DBNAME"]]
 collection = db['messages'] #init
 
-setColl(collectionName):
+def setColl(collectionName):
     collection = db[collectionName]
 
 def main():
