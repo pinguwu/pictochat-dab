@@ -81,7 +81,7 @@ def renderchat4():
 @app.route('/posted', methods=["POST"])
 def post():
     post = {}
-    post["user"] = session['user_data']
+    post["user"] = session['user_data']['login']
     post["message"] = request.form["message"]
     setColl(request.form["chatroom"])
     collection.insert_one(post)
