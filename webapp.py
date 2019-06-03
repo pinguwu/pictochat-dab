@@ -32,7 +32,7 @@ url = 'mongodb+srv://{}:{}@{}/{}'.format(
 )
 client = pymongo.MongoClient(os.environ["MONGO_HOST"])
 db = client[os.environ["MONGO_DBNAME"]]
-collection = db['text']
+collection = db['messages']
 def main():
     url = 'mongodb+srv://{}:{}@{}/{}'.format(
         os.environ["MONGO_USERNAME"],
@@ -42,7 +42,7 @@ def main():
     )
     client = pymongo.MongoClient(url)
     db = client[os.environ["MONGO_DBNAME"]]
-    collection = db['message']
+    collection = db['DataB']
 
 @app.route('/')
 def index():
@@ -81,18 +81,10 @@ def post():
     post["message"] = request.form["message"]
     #collection.insert_one(post)
     return rredirect(url_for('/Chat1'))
-    
+
 def background_thread_1():
     pass
 
-def background_thread_2():
-    pass
-
-def background_thread_3():
-    pass
-
-def background_thread_4():
-    pass
 
 
 if __name__ == '__main__':
