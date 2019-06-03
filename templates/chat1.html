@@ -1,19 +1,19 @@
 {% extends "layout.html" %}
 {% block title %}chat1{% endblock %}
 {% block content %}
-<<<<<<< HEAD
-  <head>
-  </head>
-  <body>
-    <form action='/posted' method="post">
-    <textarea name="message" style="width:100%; height:100px;"></textarea>
-  
-    <input type="submit" value="Post">
-
-     <form action="/" method="POST">
-	<button  type="submit" >Previous Page</button>
+<head>
+</head>
+<body>
+	<form action='/posted' method="post">
+		<textarea name="message" style="width:100%; height:100px;"></textarea>
+		<input type="hidden" value="chat1" name="chatroom">
+		<input type="submit" value="Post">
 	</form>
-  </body>
+     
+	<form action="/" method="POST">     
+		<button  type="submit" >Previous Page</button>
+	</form>
+</body>
 
 
 {% endblock %}
