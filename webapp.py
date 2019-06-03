@@ -32,7 +32,11 @@ url = 'mongodb+srv://{}:{}@{}/{}'.format(
 )
 client = pymongo.MongoClient(os.environ["MONGO_HOST"])
 db = client[os.environ["MONGO_DBNAME"]]
-collection = db['messages']
+collection = db['messages'] #init
+
+setColl(collectionName):
+    collection = db[collectionName]
+
 def main():
     url = 'mongodb+srv://{}:{}@{}/{}'.format(
         os.environ["MONGO_USERNAME"],
@@ -54,6 +58,7 @@ def renderchat1():
     allUserNames = "";
     #collection.find_one({})
 
+    setColl("chat1")
     for text in collection.find({}):
         vrbl = str(text['_id'])
         allUserNames += "<p>" + text["user"] + ": " + text['message'] + "</p>" + '<form action = "/delete" method = "post"> <button type="submit" name="delete" value="'+vrbl+'">Delete</button> </form>'
@@ -73,12 +78,13 @@ def renderchat3():
 def renderchat4():
     return render_template('chat4.html', async_mode = socketio.async_mode)
 
-@app.route('/posted1')
+@app.route('/posted')
 def post():
     post = {}
     #post["user"] = session['user_data']['login']
     post["message"] = request.form["message"]
-    #collection.insert_one(post)
+    setColl(post["chatroom"])
+    collection.insert_one(post)
     return redirect(url_for('/Chat1'))
 
 def background_thread_1():
