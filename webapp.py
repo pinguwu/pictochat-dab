@@ -78,7 +78,7 @@ def renderchat3():
 def renderchat4():
     return render_template('chat4.html', async_mode = socketio.async_mode)
 
-@app.route('/posted')
+@app.route('/posted', methods=["POST"])
 def post():
     post = {}
     #post["user"] = session['user_data']['login']
