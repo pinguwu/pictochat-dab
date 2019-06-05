@@ -91,7 +91,7 @@ def post():
     print("lol4")
     collection.insert_one(post)
     print("lol5")
-    return redirect("/Chat1")
+    return redirect("/" + request.form["message"])
         
 def background_thread_1():
     pass
