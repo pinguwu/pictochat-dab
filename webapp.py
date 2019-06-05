@@ -80,6 +80,7 @@ def renderchat4():
 
 @app.route('/posted', methods=["POST"])
 def post():
+    print("lol")
     post = {}
     post["user"] = "anon" #session['user_data']['login']
     post["message"] = request.form["message"]
