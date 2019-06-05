@@ -52,7 +52,7 @@ def main():
 def index():
     return render_template('home.html')
 
-@app.route('/Chat1')
+@app.route('/Chat1' methods=["GET", "POST"])
 def renderchat1():
 
     allUserNames = "";
