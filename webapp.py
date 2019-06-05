@@ -82,10 +82,15 @@ def renderchat4():
 def post():
     print("lol")
     post = {}
+    print("lol1")
     post["user"] = "anon" #session['user_data']['login']
+    print("lol2")
     post["message"] = request.form["message"]
+    print("lol3")
     setColl(request.form["chatroom"])
+    print("lol4")
     collection.insert_one(post)
+    print("lol5")
     return redirect("/" + request.form["chatroom"])
         
 def background_thread_1():
