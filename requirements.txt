@@ -21,4 +21,4 @@ Werkzeug
 WTForms
 Flask-pymongo
 dnspython
-
+flask_socketio
